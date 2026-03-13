@@ -27,6 +27,12 @@ function Sidebar() {
           </Link>
         </li>
 
+        <li>
+            <Link to="/crear-reporte" style={{color:"white"}}>
+             Crear Reporte
+            </Link>
+        </li>
+
       </ul>
 
     </div>

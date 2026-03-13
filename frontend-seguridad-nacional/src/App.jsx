@@ -5,6 +5,7 @@ import Login from "./pages/Login"
 import Dashboard from "./pages/Dashboard"
 import Reportes from "./pages/Reportes"
 import Layout from "./layout/Layout"
+import CrearReporte from "./pages/CrearReporte";
 
 function App(){
 
@@ -23,6 +24,8 @@ function App(){
         <Route path="/" element={<Dashboard/>} />
 
         <Route path="/reportes" element={<Reportes/>} />
+
+        <Route path="/crear-reporte" element={<CrearReporte addReport={addReport} />} />
 
       </Routes>
 
