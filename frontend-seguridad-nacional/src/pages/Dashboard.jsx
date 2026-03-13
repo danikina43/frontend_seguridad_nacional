@@ -1,12 +1,26 @@
-// Página principal del sistema
+import { useState } from "react";
+import ReportForm from "../components/ReportForm";
+import ReportList from "../components/ReportList";
 
-import React from "react";
+function Dashboard(){
 
-function Dashboard() {
-  return (
-    <div>
+  const [reports, setReports] = useState([]);
+
+  const addReport = (descripcion)=>{
+    if(!descripcion.trim()) return;
+
+    setReports([...reports, descripcion]);
+  };
+
+  return(
+    <div style={{padding:"20px"}}>
+
       <h2>Panel de Control</h2>
-      <p>Bienvenido al sistema de reportes.</p>
+
+      <ReportForm addReport={addReport} />
+
+      <ReportList reports={reports} />
+
     </div>
   );
 }
