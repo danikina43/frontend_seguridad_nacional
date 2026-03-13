@@ -11,7 +11,11 @@ function ReportTable({ reports, deleteReport }) {
         <thead>
           <tr>
             <th>ID</th>
-            <th>Descripción</th>
+            <th>Tipo</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Lugar</th>
+            <th>Estado</th>
             <th>Acciones</th>
           </tr>
         </thead>
@@ -22,8 +26,11 @@ function ReportTable({ reports, deleteReport }) {
             <tr key={index}>
 
               <td>{index + 1}</td>
-
-              <td>{report}</td>
+              <td>{report.tipo}</td>
+              <td>{report.fecha}</td>
+              <td>{report.hora}</td>
+              <td>{report.lugar}</td>
+              <td>{report.estado}</td>
 
               <td>
 
@@ -49,4 +56,4 @@ function ReportTable({ reports, deleteReport }) {
 
 }
 
-export default ReportTable
+export default ReportTable;
