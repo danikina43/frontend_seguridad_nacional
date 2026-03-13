@@ -1,28 +1,37 @@
-function Navbar({ onLogout }) {
+import { Link } from "react-router-dom"
+
+function Sidebar() {
+
   return (
     <div style={{
-      background: "#0a3d62",
+      width: "200px",
+      background: "#34495e",
       color: "white",
-      padding: "15px",
-      display: "flex",
-      justifyContent: "space-between"
+      height: "100vh",
+      padding: "20px"
     }}>
-      <h2>Sistema de Reportes</h2>
 
-      <button
-        onClick={onLogout}
-        style={{
-          background: "#e74c3c",
-          color: "white",
-          border: "none",
-          padding: "8px 12px",
-          cursor: "pointer"
-        }}
-      >
-        Cerrar sesión
-      </button>
+      <h3>Menú</h3>
+
+      <ul style={{listStyle:"none", padding:"0"}}>
+
+        <li>
+          <Link to="/" style={{color:"white"}}>
+            Dashboard
+          </Link>
+        </li>
+
+        <li>
+          <Link to="/reportes" style={{color:"white"}}>
+            Reportes
+          </Link>
+        </li>
+
+      </ul>
+
     </div>
-  );
+  )
+
 }
 
-export default Navbar;
+export default Sidebar
