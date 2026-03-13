@@ -1,7 +1,7 @@
 import { useState } from "react";
-import Header from "./components/Header";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
+import Layout from "./layout/Layout";
 
 function App(){
 
@@ -10,12 +10,12 @@ function App(){
   return(
     <div>
 
-      <Header/>
-
       {!isLogged ? (
         <Login onLogin={()=>setIsLogged(true)} />
       ) : (
-        <Dashboard/>
+        <Layout onLogout={()=>setIsLogged(false)}>
+          <Dashboard/>
+        </Layout>
       )}
 
     </div>
