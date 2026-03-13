@@ -8,11 +8,11 @@ function Layout({ children, onLogout }) {
 
       <Navbar onLogout={onLogout} />
 
-      <div style={{display:"flex"}}>
+      <div style={{ display: "flex" }}>
 
         <Sidebar />
 
-        <div style={{padding:"20px", width:"100%"}}>
+        <div style={{ padding: "20px", width: "100%" }}>
           {children}
         </div>
 

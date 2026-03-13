@@ -1,24 +1,22 @@
-import { useState } from "react"
-import ReportForm from "../components/ReportForm"
-import ReportTable from "../components/ReportTable"
+import { useState } from "react";
+import ReportForm from "../components/ReportForm";
+import ReportTable from "../components/ReportTable";
 
-function Dashboard(){
+function Dashboard() {
 
-  const [reports, setReports] = useState([])
+  const [reports, setReports] = useState([]);
 
-  const addReport = (descripcion)=>{
-    setReports([...reports, descripcion])
-  }
+  const addReport = (descripcion) => {
+    setReports([...reports, descripcion]);
+  };
 
-  const deleteReport = (index)=>{
-    const newReports = reports.filter((_,i)=> i !== index)
-    setReports(newReports)
-  }
+  const deleteReport = (index) => {
+    const newReports = reports.filter((_, i) => i !== index);
+    setReports(newReports);
+  };
 
-  return(
-
-    <div>
-
+  return (
+    <div style={{ padding: "20px" }}>
       <h2>Panel de Control</h2>
 
       <ReportForm addReport={addReport} />
@@ -29,9 +27,7 @@ function Dashboard(){
       />
 
     </div>
-
-  )
-
+  );
 }
 
-export default Dashboardr
+export default Dashboard;
