@@ -1,44 +1,57 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
 
-function Sidebar({ user }) {
+function Sidebar(){
 
-  return (
+  return(
 
     <div style={{
-      width:"200px",
-      background:"#34495e",
+      width:"240px",
+      background:"#020617",
       color:"white",
       height:"100vh",
       padding:"20px"
     }}>
 
-      <h3>Menú</h3>
+      <h2>Seguridad Nacional</h2>
 
-      <ul>
+      <p style={{color:"#94a3b8", marginTop:"20px"}}>
+        PRINCIPAL
+      </p>
 
-        <li>
-          <Link to="/">Dashboard</Link>
-        </li>
+      <ul style={{listStyle:"none", padding:"0"}}>
 
-        {user.rol === "guardia" && (
-          <li>
-            <Link to="/crear-reporte">Crear Reporte</Link>
-          </li>
-        )}
-
-        {user.rol === "supervisor" && (
-          <li>
-            <Link to="/revision-reportes">Revisión Reportes</Link>
-          </li>
-        )}
-
-        {user.rol === "admin" && (
-          <li>
-            <Link to="/usuarios">Usuarios</Link>
-          </li>
-        )}
+        <li><Link to="/">Dashboard</Link></li>
+        <li><Link to="/reportes">Reportes</Link></li>
+        <li><Link to="/crear-reporte">Crear reporte</Link></li>
+        <li><Link to="/alertas">Alertas</Link></li>
 
       </ul>
+
+      <p style={{color:"#94a3b8", marginTop:"20px"}}>
+        PERSONAL
+      </p>
+
+      <ul style={{listStyle:"none", padding:"0"}}>
+
+        <li><Link to="/guardas">Guardas</Link></li>
+        <li><Link to="/supervisores">Supervisores</Link></li>
+        <li><Link to="/admin">Personal Admin</Link></li>
+
+      </ul>
+
+      <p style={{color:"#94a3b8", marginTop:"20px"}}>
+        CONFIGURACIÓN
+      </p>
+
+      <ul style={{listStyle:"none", padding:"0"}}>
+
+        <li><Link to="/personas">Personas</Link></li>
+        <li><Link to="/usuarios">Usuarios</Link></li>
+        <li><Link to="/vehiculos">Vehículos</Link></li>
+
+      </ul>
+
+      
 
     </div>
 

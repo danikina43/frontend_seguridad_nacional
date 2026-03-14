@@ -1,55 +1,34 @@
-import { useState } from "react";
+import { useState } from "react"
+import { tiposReporte } from "../data/mockData"
 
-function CrearReporte({ addReport }) {
+function CrearReporte(){
 
-  const [tipo, setTipo] = useState("");
-  const [fecha, setFecha] = useState("");
-  const [hora, setHora] = useState("");
-  const [lugar, setLugar] = useState("");
-  const [descripcion, setDescripcion] = useState("");
-  const [foto, setFoto] = useState(null);
+  const [fecha, setFecha] = useState("")
+  const [descripcion, setDescripcion] = useState("")
+  const [tipoReporte, setTipoReporte] = useState("")
+  const [estado, setEstado] = useState("")
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (e)=>{
+    e.preventDefault()
 
     const nuevoReporte = {
-      tipo,
-      fecha,
-      hora,
-      lugar,
-      descripcion,
-      foto,
-      estado: "Pendiente"
-    };
+      fecha_creacion: fecha,
+      descripcion: descripcion,
+      usuario_id_usuario_generador: 1,
+      tipo_reporte_id_tipo_reporte: tipoReporte,
+      status_reporte_id_status_reporte: estado
+    }
 
-    addReport(nuevoReporte);
+    console.log(nuevoReporte)
+  }
 
-    setTipo("");
-    setFecha("");
-    setHora("");
-    setLugar("");
-    setDescripcion("");
-    setFoto(null);
-  };
+  return(
 
-  return (
-
-    <div>
+    <div style={{color:"white"}}>
 
       <h2>Crear Reporte</h2>
 
       <form onSubmit={handleSubmit}>
-
-        <label>Tipo de reporte</label>
-        <select value={tipo} onChange={(e)=>setTipo(e.target.value)}>
-          <option value="">Seleccione</option>
-          <option>Ingreso de personal</option>
-          <option>Ingreso de vehículo</option>
-          <option>Novedad de seguridad</option>
-          <option>Incidente</option>
-        </select>
-
-        <br/><br/>
 
         <label>Fecha</label>
         <input
@@ -60,37 +39,44 @@ function CrearReporte({ addReport }) {
 
         <br/><br/>
 
-        <label>Hora</label>
-        <input
-          type="time"
-          value={hora}
-          onChange={(e)=>setHora(e.target.value)}
-        />
+<label>Tipo de reporte</label>
+
+<select
+  value={tipoReporte}
+  onChange={(e)=>setTipoReporte(e.target.value)}
+>
+
+  <option value="">Seleccione</option>
+
+  {tiposReporte.map((tipo)=>(
+    <option key={tipo.id} value={tipo.id}>
+      {tipo.nombre}
+    </option>
+  ))}
+
+</select>
+       
 
         <br/><br/>
 
-        <label>Lugar</label>
-        <input
-          type="text"
-          placeholder="Lugar del incidente"
-          value={lugar}
-          onChange={(e)=>setLugar(e.target.value)}
-        />
+        <label>Estado</label>
+        <select
+          value={estado}
+          onChange={(e)=>setEstado(e.target.value)}
+        >
+          <option value="">Seleccione</option>
+          <option value="1">Pendiente</option>
+          <option value="2">Recibido</option>
+          <option value="3">Devuelto</option>
+        </select>
 
         <br/><br/>
 
         <label>Descripción</label>
+
         <textarea
           value={descripcion}
           onChange={(e)=>setDescripcion(e.target.value)}
-        />
-
-        <br/><br/>
-
-        <label>Foto del reporte</label>
-        <input
-          type="file"
-          onChange={(e)=>setFoto(e.target.files[0])}
         />
 
         <br/><br/>
@@ -103,7 +89,7 @@ function CrearReporte({ addReport }) {
 
     </div>
 
-  );
+  )
 
 }
 

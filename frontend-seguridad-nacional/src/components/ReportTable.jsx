@@ -1,52 +1,73 @@
-function ReportTable({ reports, deleteReport }) {
+import { statusReporte } from "../data/mockData"
 
-  return (
+function ReportTable({ reportes }){
 
-    <div>
+  return(
 
-      <h3>Lista de Reportes</h3>
+    <div style={{
+      background:"#1e293b",
+      padding:"20px",
+      borderRadius:"10px",
+      color:"white"
+    }}>
 
-      <table border="1" cellPadding="10">
+      <h3>Mis últimos reportes</h3>
+
+      <table style={{width:"100%", marginTop:"15px"}}>
 
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Tipo</th>
             <th>Fecha</th>
-            <th>Hora</th>
-            <th>Lugar</th>
+            <th>Descripción</th>
+            <th>Tipo</th>
             <th>Estado</th>
-            <th>Acciones</th>
           </tr>
         </thead>
 
-        <tbody>
+<tbody>
 
-          {reports.map((report, index)=>(
-            <tr key={index}>
+{reportes.map((r)=>(
+  <tr key={r.id}>
 
-              <td>{index + 1}</td>
-              <td>{report.tipo}</td>
-              <td>{report.fecha}</td>
-              <td>{report.hora}</td>
-              <td>{report.lugar}</td>
-              <td>{report.estado}</td>
+    <td>{r.fecha}</td>
+    <td>{r.descripcion}</td>
+    <td>{r.tipo}</td>
 
-              <td>
+    <td>
+      {
+        statusReporte.find(
+          s => s.id === r.status_reporte_id_status_reporte
+        )?.nombre
+      }
+    </td>
 
-                <button
-                  onClick={()=>deleteReport(index)}
-                  style={{background:"red", color:"white"}}
-                >
-                  Eliminar
-                </button>
+    <td>
 
-              </td>
+      <button style={{
+        background:"#22c55e",
+        color:"white",
+        border:"none",
+        padding:"6px"
+      }}>
+        Recibir
+      </button>
 
-            </tr>
-          ))}
+      <button style={{
+        background:"#ef4444",
+        color:"white",
+        border:"none",
+        padding:"6px",
+        marginLeft:"5px"
+      }}>
+        Devolver
+      </button>
 
-        </tbody>
+    </td>
+
+  </tr>
+))}
+
+</tbody>
 
       </table>
 

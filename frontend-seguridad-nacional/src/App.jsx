@@ -1,28 +1,29 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
 
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import Layout from "./layout/Layout";
+import Login from "./pages/Login"
+import Dashboard from "./pages/Dashboard"
+import Reportes from "./pages/Reportes"
 
-function App(){
+import Layout from "./layout/Layout"
 
-  const [user, setUser] = useState(null);
+function App() {
 
-  if(!user){
+  const [user, setUser] = useState(null)
+
+  if (!user) {
     return <Login onLogin={setUser} />
   }
 
-  return(
+  return (
 
-    <Layout
-      user={user}
-      onLogout={()=>setUser(null)}
-    >
+    <Layout user={user} onLogout={() => setUser(null)}>
 
       <Routes>
 
-        <Route path="/" element={<Dashboard user={user}/>} />
+        <Route path="/" element={<Dashboard />} />
+
+        <Route path="/reportes" element={<Reportes user={user} />} />
 
       </Routes>
 
