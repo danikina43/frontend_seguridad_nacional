@@ -1,16 +1,16 @@
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 
-function Layout({ children, onLogout }) {
+function Layout({ children, onLogout, user }) {
 
   return (
     <div>
 
-      <Navbar onLogout={onLogout} />
+      <Navbar user={user} onLogout={onLogout} />
 
       <div style={{ display: "flex" }}>
 
-        <Sidebar />
+        <Sidebar user={user} />
 
         <div style={{ padding: "20px", width: "100%" }}>
           {children}

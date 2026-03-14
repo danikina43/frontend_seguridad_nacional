@@ -3,27 +3,26 @@ import { Routes, Route } from "react-router-dom";
 
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
-import CrearReporte from "./pages/CrearReporte";
-
 import Layout from "./layout/Layout";
 
 function App(){
 
-  const [isLogged, setIsLogged] = useState(false);
+  const [user, setUser] = useState(null);
 
-  if(!isLogged){
-    return <Login onLogin={()=>setIsLogged(true)} />
+  if(!user){
+    return <Login onLogin={setUser} />
   }
 
-  return (
+  return(
 
-    <Layout onLogout={()=>setIsLogged(false)}>
+    <Layout
+      user={user}
+      onLogout={()=>setUser(null)}
+    >
 
       <Routes>
 
-        <Route path="/" element={<Dashboard />} />
-
-        <Route path="/crear-reporte" element={<CrearReporte />} />
+        <Route path="/" element={<Dashboard user={user}/>} />
 
       </Routes>
 
