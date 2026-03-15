@@ -1,25 +1,40 @@
-function StatCard({ title, value, color }) {
+function AlertPanel({ alertas }) {
 
   return (
 
     <div style={{
-      background:"#1e293b",
-      padding:"20px",
-      borderRadius:"12px",
-      width:"250px",
-      color:"white",
-      display:"flex",
-      flexDirection:"column",
-      gap:"5px"
+      background: "#1e293b",
+      padding: "20px",
+      borderRadius: "10px",
+      width: "300px",
+      color: "white"
     }}>
 
-      <span style={{color:"#94a3b8"}}>
-        {title}
-      </span>
+      <h3>Alertas recientes</h3>
 
-      <h2 style={{color:color}}>
-        {value}
-      </h2>
+      {alertas.length === 0 ? (
+
+        <p style={{ color: "#94a3b8" }}>
+          Sin alertas nuevas
+        </p>
+
+      ) : (
+
+        alertas.map((a) => (
+
+          <div
+            key={a.id}
+            style={{
+              padding: "8px",
+              borderBottom: "1px solid #334155"
+            }}
+          >
+            {a.mensaje}
+          </div>
+
+        ))
+
+      )}
 
     </div>
 
@@ -27,4 +42,4 @@ function StatCard({ title, value, color }) {
 
 }
 
-export default StatCard;
+export default AlertPanel;

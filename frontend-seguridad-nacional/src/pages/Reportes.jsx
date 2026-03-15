@@ -1,7 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 import { reportes, statusReporte } from "../data/mockData"
 
 function Reportes({ user }) {
+
+  const navigate = useNavigate()
 
   const [busqueda, setBusqueda] = useState("")
   const [estadoFiltro, setEstadoFiltro] = useState("")
@@ -25,24 +29,34 @@ function Reportes({ user }) {
 
       <h2>Reportes</h2>
 
-      <div style={{
-        display: "flex",
-        gap: "10px",
-        marginBottom: "20px"
-      }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "10px",
+          marginBottom: "20px"
+        }}
+      >
 
         <input
           type="text"
           placeholder="Buscar reporte..."
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
-          style={{ padding: "8px" }}
+          style={{
+            padding: "8px",
+            borderRadius: "4px",
+            border: "none"
+          }}
         />
 
         <select
           value={estadoFiltro}
           onChange={(e) => setEstadoFiltro(e.target.value)}
-          style={{ padding: "8px" }}
+          style={{
+            padding: "8px",
+            borderRadius: "4px",
+            border: "none"
+          }}
         >
 
           <option value="">Todos los estados</option>
@@ -58,6 +72,7 @@ function Reportes({ user }) {
         {(user?.rol === "guarda" || user?.rol === "supervisor") && (
 
           <button
+            onClick={() => navigate("/crear-reporte")}
             style={{
               background: "#2563eb",
               color: "white",
@@ -74,11 +89,14 @@ function Reportes({ user }) {
 
       </div>
 
-      <table style={{
-        width: "100%",
-        background: "#1e293b",
-        borderRadius: "8px"
-      }}>
+      <table
+        style={{
+          width: "100%",
+          background: "#1e293b",
+          borderRadius: "8px",
+          overflow: "hidden"
+        }}
+      >
 
         <thead>
 
@@ -88,6 +106,7 @@ function Reportes({ user }) {
             <th>Descripción</th>
             <th>Tipo</th>
             <th>Estado</th>
+            <th>Acciones</th>
           </tr>
 
         </thead>
@@ -97,7 +116,9 @@ function Reportes({ user }) {
           {reportesFiltrados.length === 0 ? (
 
             <tr>
-              <td colSpan="5">No hay reportes</td>
+              <td colSpan="6" style={{ textAlign: "center", padding: "10px" }}>
+                No hay reportes
+              </td>
             </tr>
 
           ) : (
@@ -117,6 +138,24 @@ function Reportes({ user }) {
                       s => s.id === r.status_reporte_id_status_reporte
                     )?.nombre
                   }
+                </td>
+
+                <td>
+
+                  <button
+                    onClick={() => navigate(`/reporte/${r.id}`)}
+                    style={{
+                      background: "#22c55e",
+                      color: "white",
+                      border: "none",
+                      padding: "6px 10px",
+                      borderRadius: "4px",
+                      cursor: "pointer"
+                    }}
+                  >
+                    Ver
+                  </button>
+
                 </td>
 
               </tr>

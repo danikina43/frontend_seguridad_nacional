@@ -1,14 +1,15 @@
 import { useState } from "react"
-import { tiposReporte } from "../data/mockData"
+import { tiposReporte, statusReporte } from "../data/mockData"
 
-function CrearReporte(){
+function CrearReporte() {
 
   const [fecha, setFecha] = useState("")
   const [descripcion, setDescripcion] = useState("")
   const [tipoReporte, setTipoReporte] = useState("")
-  const [estado, setEstado] = useState("")
+  const [estado, setEstado] = useState("1")
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
+
     e.preventDefault()
 
     const nuevoReporte = {
@@ -19,69 +20,89 @@ function CrearReporte(){
       status_reporte_id_status_reporte: estado
     }
 
-    console.log(nuevoReporte)
+    console.log("Reporte creado:", nuevoReporte)
+
+    alert("Reporte creado correctamente")
+
   }
 
-  return(
+  return (
 
-    <div style={{color:"white"}}>
+    <div style={{ color: "white", padding: "20px" }}>
 
       <h2>Crear Reporte</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
+          width: "400px"
+        }}
+      >
 
         <label>Fecha</label>
+
         <input
           type="date"
           value={fecha}
-          onChange={(e)=>setFecha(e.target.value)}
+          onChange={(e) => setFecha(e.target.value)}
         />
 
-        <br/><br/>
+        <label>Tipo de reporte</label>
 
-<label>Tipo de reporte</label>
-
-<select
-  value={tipoReporte}
-  onChange={(e)=>setTipoReporte(e.target.value)}
->
-
-  <option value="">Seleccione</option>
-
-  {tiposReporte.map((tipo)=>(
-    <option key={tipo.id} value={tipo.id}>
-      {tipo.nombre}
-    </option>
-  ))}
-
-</select>
-       
-
-        <br/><br/>
-
-        <label>Estado</label>
         <select
-          value={estado}
-          onChange={(e)=>setEstado(e.target.value)}
+          value={tipoReporte}
+          onChange={(e) => setTipoReporte(e.target.value)}
         >
-          <option value="">Seleccione</option>
-          <option value="1">Pendiente</option>
-          <option value="2">Recibido</option>
-          <option value="3">Devuelto</option>
-        </select>
 
-        <br/><br/>
+          <option value="">Seleccione</option>
+
+          {tiposReporte.map((tipo) => (
+
+            <option key={tipo.id} value={tipo.id}>
+              {tipo.nombre}
+            </option>
+
+          ))}
+
+        </select>
 
         <label>Descripción</label>
 
         <textarea
           value={descripcion}
-          onChange={(e)=>setDescripcion(e.target.value)}
+          onChange={(e) => setDescripcion(e.target.value)}
         />
 
-        <br/><br/>
+        <label>Estado</label>
 
-        <button type="submit">
+        <select
+          value={estado}
+          onChange={(e) => setEstado(e.target.value)}
+        >
+
+          {statusReporte.map((s) => (
+
+            <option key={s.id} value={s.id}>
+              {s.nombre}
+            </option>
+
+          ))}
+
+        </select>
+
+        <button
+          type="submit"
+          style={{
+            background: "#2563eb",
+            color: "white",
+            border: "none",
+            padding: "10px",
+            borderRadius: "6px"
+          }}
+        >
           Guardar reporte
         </button>
 

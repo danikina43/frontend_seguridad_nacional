@@ -20,7 +20,7 @@ function Sidebar(){
 
       <ul style={{listStyle:"none", padding:"0"}}>
 
-        <li><Link to="/">Dashboard</Link></li>
+        <li><Link to="/">Panel de Control</Link></li>
         <li><Link to="/reportes">Reportes</Link></li>
         <li><Link to="/crear-reporte">Crear reporte</Link></li>
         <li><Link to="/alertas">Alertas</Link></li>
