@@ -1,0 +1,95 @@
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#2c2f33;
+  color:white;
+}
+
+/* sidebar */
+
+.sidebar{
+  width:240px;
+  background:#1f2937;
+  height:100vh;
+  padding:20px;
+}
+
+.sidebar h2{
+  color:#facc15;
+}
+
+.sidebar ul{
+  list-style:none;
+  padding:0;
+}
+
+.sidebar li{
+  padding:10px;
+  border-radius:6px;
+}
+
+.sidebar li:hover{
+  background:#374151;
+}
+
+/* navbar */
+
+.navbar{
+  background:#1e3a8a;
+  padding:15px;
+  display:flex;
+  justify-content:space-between;
+}
+
+/* tarjetas */
+
+.card{
+  background:#374151;
+  padding:20px;
+  border-radius:10px;
+}
+
+/* tablas */
+
+.table{
+  width:100%;
+  background:#374151;
+  border-collapse:collapse;
+}
+
+.table th{
+  background:#1e3a8a;
+  padding:10px;
+}
+
+.table td{
+  padding:10px;
+}
+
+.table tr:nth-child(even){
+  background:#2c2f33;
+}
+
+/* botones */
+
+.btn-primary{
+  background:#1e3a8a;
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+}
+
+.btn-warning{
+  background:#facc15;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+}
+
+.btn-danger{
+  background:#ef4444;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+}

@@ -1,25 +1,29 @@
-import Navbar from "../components/Navbar";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "../components/Sidebar"
+import Navbar from "../components/Navbar"
 
-function Layout({ children, onLogout, user }) {
+function Layout({children, user, onLogout}){
 
-  return (
-    <div>
+  return(
 
-      <Navbar user={user} onLogout={onLogout} />
+    <div style={{display:"flex"}}>
 
-      <div style={{ display: "flex" }}>
+      <Sidebar/>
 
-        <Sidebar user={user} />
+      <div style={{flex:1}}>
 
-        <div style={{ padding: "20px", width: "100%" }}>
+        <Navbar user={user} onLogout={onLogout}/>
+
+        <div style={{padding:"20px"}}>
+
           {children}
+
         </div>
 
       </div>
 
     </div>
-  );
+
+  )
 
 }
 

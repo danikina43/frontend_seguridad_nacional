@@ -2,20 +2,19 @@ function StatCard({ title, value, color }) {
 
   return (
 
-    <div style={{
-      background:"#1e293b",
-      padding:"20px",
-      borderRadius:"12px",
-      width:"250px",
-      color:"white",
-      display:"flex",
-      flexDirection:"column",
-      gap:"5px"
-    }}>
+    <div
+      style={{
+        background:"#1e293b",
+        padding:"20px",
+        borderRadius:"12px",
+        width:"220px",
+        color:"white"
+      }}
+    >
 
-      <span style={{color:"#94a3b8"}}>
+      <p style={{color:"#94a3b8"}}>
         {title}
-      </span>
+      </p>
 
       <h2 style={{color:color}}>
         {value}
@@ -27,4 +26,4 @@ function StatCard({ title, value, color }) {
 
 }
 
-export default StatCard;
+export default StatCard
