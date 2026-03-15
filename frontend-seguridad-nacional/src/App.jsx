@@ -14,6 +14,8 @@ import Supervisores from "./pages/Supervisores"
 import Vehiculos from "./pages/Vehiculos"
 import Personas from "./pages/Personas"
 import Conductores from "./pages/Conductores" 
+import Roles from "./pages/Roles"
+import Configuracion from "./pages/Configuracion"
 
 function App() {
 
@@ -50,6 +52,10 @@ function App() {
         <Route path="/personas" element={<Personas />} />
 
         <Route path="/conductores" element={<Conductores />} />
+
+        <Route path="/roles" element={<Roles />} />
+
+        <Route path="/configuracion" element={<Configuracion />} />
 
       </Routes>
 

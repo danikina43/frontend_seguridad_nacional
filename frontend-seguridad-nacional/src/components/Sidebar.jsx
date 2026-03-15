@@ -1,29 +1,76 @@
 import { Link } from "react-router-dom"
 
+import {
+  FaHome,
+  FaFileAlt,
+  FaPlusCircle,
+  FaBell,
+  FaUsers,
+  FaUserShield,
+  FaCar,
+  FaIdCard,
+  FaCogs
+} from "react-icons/fa"
+
 function Sidebar(){
 
   return(
 
     <div className="sidebar">
 
-      <h2>Seguridad Nacional</h2>
+      <h2 className="logo">Seguridad Nacional</h2>
 
-      <ul>
+      <div className="menu">
 
-        <li><button><Link to="/">Dashboard</Link></button></li>
-        <li><Link to="/reportes">Reportes</Link></li>
-        <li><Link to="/alertas">Alertas</Link></li>
+        <Link className="menu-item" to="/">
+          <FaHome className="icon"/> Dashboard
+        </Link>
 
-        <li><Link to="/guardas">Guardas</Link></li>
-        <li><Link to="/supervisores">Supervisores</Link></li>
+        <Link className="menu-item" to="/reportes">
+          <FaFileAlt className="icon"/> Reportes
+        </Link>
 
-        <li><Link to="/personas">Personas</Link></li>
-        <li><Link to="/usuarios">Usuarios</Link></li>
+        <Link className="menu-item" to="/crear-reporte">
+          <FaPlusCircle className="icon"/> Crear Reporte
+        </Link>
 
-        <li><Link to="/vehiculos">Vehículos</Link></li>
-        <li><Link to="/conductores">Conductores</Link></li>
+        <Link className="menu-item" to="/alertas">
+          <FaBell className="icon"/> Alertas
+        </Link>
 
-      </ul>
+        <Link className="menu-item" to="/guardas">
+          <FaUserShield className="icon"/> Guardas
+        </Link>
+
+        <Link className="menu-item" to="/supervisores">
+          <FaUsers className="icon"/> Supervisores
+        </Link>
+
+        <Link className="menu-item" to="/personas">
+          <FaIdCard className="icon"/> Personas
+        </Link>
+
+        <Link className="menu-item" to="/usuarios">
+          <FaUsers className="icon"/> Usuarios
+        </Link>
+
+        <Link className="menu-item" to="/roles">
+          <FaUsers className="icon"/> Roles
+        </Link>
+
+        <Link className="menu-item" to="/vehiculos">
+          <FaCar className="icon"/> Vehículos
+        </Link>
+
+        <Link className="menu-item" to="/conductores">
+          <FaUsers className="icon"/> Conductores
+        </Link>
+
+        <Link className="menu-item" to="/configuracion">
+          <FaCogs className="icon"/> Configuración
+        </Link>
+
+      </div>
 
     </div>
 

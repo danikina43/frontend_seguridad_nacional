@@ -1,31 +1,20 @@
-function Navbar({ user, onLogout }) {
+function Navbar({ user, onLogout }){
 
-  return (
+  return(
 
-    <div style={{
-      background:"#0a3d62",
-      color:"white",
-      padding:"15px",
-      display:"flex",
-      justifyContent:"space-between"
-    }}>
+    <div className="navbar">
 
-      <h2>Sistema de Reportes</h2>
+      <h3>Sistema de Seguridad</h3>
 
       <div>
 
-        <span style={{marginRight:"20px"}}>
+        <span style={{marginRight:"15px"}}>
           {user?.nombre} - {user?.rol}
         </span>
 
         <button
+          className="btn-warning"
           onClick={onLogout}
-          style={{
-            background:"red",
-            color:"white",
-            border:"none",
-            padding:"8px"
-          }}
         >
           Cerrar sesión
         </button>

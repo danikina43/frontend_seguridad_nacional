@@ -1,5 +1,6 @@
 import StatCard from "../components/StatCard"
 import ReportChart from "../components/ReportChart"
+import Notifications from "../components/Notificaciones"
 
 import { reportes, guardas, alertas } from "../data/mockData"
 
@@ -47,6 +48,15 @@ function Dashboard(){
         />
 
       </div>
+      <div className="card" style={{marginTop:"30px"}}>
+        <h3>Estadisticas del sistema</h3>
+        <ul>
+          <li>Total reportes registrados</li>
+          <li>Total usuarios del sistema</li>
+          <li>Vehículos registrados</li>
+          <li>Alertas activas</li>
+        </ul>
+      </div>
 
 
       {/* Gráfica */}
@@ -55,6 +65,10 @@ function Dashboard(){
 
         <ReportChart />
 
+      </div>
+      <div style={{marginTop:"30px"}}>
+
+        <Notifications /> 
       </div>
 
 

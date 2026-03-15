@@ -1,73 +1,56 @@
-import { useState } from "react";
+import { useState } from "react"
 
-function Login({ onLogin }) {
+function Login({ onLogin }){
 
-  const [usuario, setUsuario] = useState("");
-  const [password, setPassword] = useState("");
-  const [rol, setRol] = useState("");
+  const [usuario,setUsuario] = useState("")
+  const [password,setPassword] = useState("")
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (e)=>{
+    e.preventDefault()
 
-    if(usuario && password && rol){
-      onLogin({
-        nombre: usuario,
-        rol: rol
-      });
-    }else{
-      alert("Complete todos los campos");
+    const user = {
+      nombre:usuario,
+      rol:"admin"
     }
-  };
 
-  return (
+    onLogin(user)
+  }
 
-    <div style={{padding:"40px"}}>
+  return(
 
-      <h2>Inicio de sesión</h2>
+    <div className="login-container">
 
-      <form onSubmit={handleSubmit}>
+      <div className="login-box">
 
-        <input
-          type="text"
-          placeholder="Usuario"
-          value={usuario}
-          onChange={(e)=>setUsuario(e.target.value)}
-        />
+        <h2>Sistema Seguridad Nacional</h2>
 
-        <br/><br/>
+        <form onSubmit={handleSubmit}>
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Usuario"
+            value={usuario}
+            onChange={(e)=>setUsuario(e.target.value)}
+          />
 
-        <br/><br/>
+          <input
+            type="password"
+            placeholder="Contraseña"
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
+          />
 
-        <label>Rol</label>
+          <button type="submit">
+            Iniciar Sesión
+          </button>
 
-        <select
-          value={rol}
-          onChange={(e)=>setRol(e.target.value)}
-        >
-          <option value="">Seleccione</option>
-          <option value="admin">Administrador</option>
-          <option value="supervisor">Supervisor</option>
-          <option value="guardia">Guardia</option>
-        </select>
+        </form>
 
-        <br/><br/>
-
-        <button type="submit">
-          Ingresar
-        </button>
-
-      </form>
+      </div>
 
     </div>
 
-  );
+  )
 
 }
 
