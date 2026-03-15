@@ -168,3 +168,67 @@ body{
   padding:10px;
   border-radius:6px;
 }
+
+.login-container{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(
+    135deg,
+    #1f2937,
+    #111827
+  );
+}
+
+.login-box{
+  background:#374151;
+  padding:40px;
+  border-radius:12px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 0 25px rgba(0,0,0,0.4);
+}
+
+.login-logo{
+  width:150px;
+  margin-bottom:20px;
+}
+
+.login-box h2{
+  color:#facc15;
+  margin-bottom:20px;
+}
+
+.login-box input{
+  width:100%;
+  padding:10px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:6px;
+}
+
+.login-box button{
+  width:100%;
+  padding:10px;
+  background:#1e3a8a;
+  color:white;
+  border:none;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+.login-box button:hover{
+  background:#1d4ed8;
+}
+.sidebar-logo{
+  width:140px;
+  margin: 0 auto 20px auto;
+  display: block;
+  align-items: center;
+}
+.nevar-logo{
+  width:120px;
+  display: block;
+  margin: 0 auto 20px auto;
+}

@@ -1,4 +1,5 @@
 import { useState } from "react"
+import logo from "../assets/logo_panel.png"
 
 function Login({ onLogin }){
 
@@ -21,6 +22,7 @@ function Login({ onLogin }){
     <div className="login-container">
 
       <div className="login-box">
+        <img src={logo} alt ="Seguridad Nacional" className = "login-logo" />
 
         <h2>Sistema Seguridad Nacional</h2>
 

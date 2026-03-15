@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import logo from "../assets/logo_panel.png"
 
 import {
   FaHome,
@@ -17,8 +18,10 @@ function Sidebar(){
   return(
 
     <div className="sidebar">
+    
+    <img src={logo} alt="Seguridad Nacional" style={{width:"160px",marginBottom:"20px"}}/>
 
-      <h2 className="logo">Seguridad Nacional</h2>
+      
 
       <div className="menu">
 

@@ -1,10 +1,25 @@
+import logo from "../assets/logo_panel.png"
+import GlobalSearch from "./GlobalSearch"
+
 function Navbar({ user, onLogout }){
 
   return(
 
     <div className="navbar">
 
-      <h3>Sistema de Seguridad</h3>
+      <div style={{display:"flex",alignItems:"center",gap:"10px"}}>
+
+        <img
+          src={logo}
+          alt="Logo"
+          style={{width:"40px"}}
+        />
+
+        <h3>Sistema de Seguridad</h3>
+
+      </div>
+
+      <GlobalSearch/>
 
       <div>
 
@@ -12,10 +27,7 @@ function Navbar({ user, onLogout }){
           {user?.nombre} - {user?.rol}
         </span>
 
-        <button
-          className="btn-warning"
-          onClick={onLogout}
-        >
+        <button className="btn-warning" onClick={onLogout}>
           Cerrar sesión
         </button>
 
